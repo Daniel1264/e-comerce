@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --color1 : #1CD6CE;
+    --color2: #332FD0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Pantalla de carga */
+.window_loading {
+    width: 100vw;
+    height: 100vh;
+}
+.window_loading img {
+    width: 20%;
+    height: auto;
+}
+.add {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animation 1s infinite;
+    position: fixed;
+}
+
+.remove {
+    display: none;
+}
+
+@keyframes animation {
+    from {
+        transform: rotateZ(0);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+
+
+}
+
+.add_content {
+    display: none;
+}
+
+/* Contenido  */
+
+header {
+    height: 100vh;
+    background-image: url(/imagenes/walpeper_responsive.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(50, 50, 50);
+    background-blend-mode: soft-light;
+}
+
+
+nav {
+    height: 40px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+    align-items: center;
+}
+nav .burguer_menu{
+    height: auto;
+}
+#check {
+    display: none;
+}
+
+
+nav .logo_shoping {
+    height: auto;
+}
+
+nav .shopping_cart {
+    height: auto;
+}
+nav .add_cart {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(212, 47, 25, 0.774);
+    top: 40px;
+    right: 100%;
+}
+nav .remove_cart {
+    right: 0;
+    transition: all .5s;
+}
+nav #checkbtn {
+    display: none;
+}
+nav img {
+    width: 30px;
+}
+
+ .menu_navegation {
+    position: absolute;
+    top: 40px;
+    height: 100%;
+    background-color: white;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+li {
+    padding: 10px;
+}
+li a {
+    text-decoration: none;
+}
+.add_menu {
+    position: absolute;
+    top: 50px;
+    right: 100%;
+    transition: all .5s;
+    height: 100vh;
+    width: 100%;
+}
+
+.remove_menu {
+    right: 0;
+
+}
+/* Presentation text */
+header .text_content {
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    height: 100%;
+    text-align: center;
+}
+header .text_content p{
+    line-height: 1rem;
+}
+header .text_content span {
+    color: var(--color1)
+}
+header .text_content button {
+    width: 90%;
+    padding: 10px;
+    background-color: rgba(204, 39, 39, 0.753);
+}
+header .text_content button a {
+    color: white;
+    width: 100%;
+    text-decoration: none;
+}
+header .text_content button:hover {
+    background-color: red;
+    transition: all .5s;
+}
+
+
+/* content body */ 
+
+
+main {
+    margin-top: 10px;
+}
+.content_cards_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.container_products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    justify-content: center;
+    gap: 2rem;
+}
+.container_products h2 {
+    margin: 10px;
+}
+
+.container_products .product_card {
+    width: 220px;
+    box-shadow: 1px 1px 5px 1px black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container_products .product_card:hover {
+    transform: translateY(-30px);
+    transition: transform .5s;
+    box-shadow: 1px 1px 10px 1px black;
+
+}
+
+.container_products .product_card .image_product {
+    width: 90%;
+    height: 90%;
+}
+
+.container_products .product_card .image_product img {
+    width: 100%;
+}
+.container_products .product_card .product_card_information {
+    text-align: center;
+}
+.product_card button {
+    width:  80%;
+    padding: 10px;
+    background-color: var(--color2);
+    border-radius: 20px;
+    border: none;
+    color: white;
+}
