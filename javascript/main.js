@@ -37,6 +37,9 @@ contentCartBody.addEventListener("click", (e) => {
     if (e.target.classList.contains("bx-minus")) {
         const idFood = +e.target.parentElement.id;
         cart[idFood].amount--;
+        if (cart[idFood].amount === 0) {
+            delete cart[idFood]
+        }
     }
 
     if (e.target.classList.contains("bx-plus-medical")) {
