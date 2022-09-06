@@ -1,9 +1,9 @@
 export function printContent(contentHTML, data) {
     let html = "";
 
-    data.forEach(({name, stock, price, image})  => {
+    data.forEach(({name, stock, price, image, id})  => {
         html += `
-        <div class="product_card">
+        <div class="product_card" id= "${id}">
            <div class="image_product">
                 <img src="${image}" alt="image_product">       
            </div>
@@ -13,7 +13,7 @@ export function printContent(contentHTML, data) {
                <p>stock ${stock}</p>
                <p>${price}</p>
             </div>
-            <button>add</button>
+            <button class="add_product">add</button>
         </div>
         `
         contentHTML.innerHTML = html;
