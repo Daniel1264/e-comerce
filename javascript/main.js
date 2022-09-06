@@ -7,7 +7,7 @@ import {printContent} from "./printContent.js"
 // products
 let contentProducts = document.querySelector(".container_products")
 
-
+l
 // FUNCIONES A UTILIZAR
 
 printContent(contentProducts, dataProducts); //Function products
