@@ -98,7 +98,7 @@ nav .add_cart {
 }
 nav .remove_cart {
     right: 0;
-    transition: all .5s;
+    transition: right .5s;
 }
 nav #checkbtn {
     display: none;
@@ -111,7 +111,7 @@ nav img {
     position: absolute;
     top: 40px;
     height: 100%;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.452);
 }
 ul {
     display: flex;
@@ -125,6 +125,8 @@ li {
 }
 li a {
     text-decoration: none;
+    color: white;
+    padding: 20px;
 }
 .add_menu {
     position: absolute;
@@ -242,6 +244,7 @@ main {
     /* align-items: center; */
     gap: 3rem;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /* Styles cart body */
@@ -254,13 +257,21 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .item_cart-img {
-    width: 100%;
+    width: 90%;
     height: 200px;
 }
 .item_cart-img img {
     width: 100%;
     height: 100%;
+}
+
+.item_cart-options {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }

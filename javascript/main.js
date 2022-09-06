@@ -5,12 +5,15 @@ import {printCart, cart} from "./cart.js"
 
 // SELECTORES DE ETIQUETA (CLASE, ID)
  let contentProducts = document.querySelector(".container_products")
-
+ const contentCartBody = document.querySelector(".barra_cart_products")
 
 // FUNCIONES A UTILIZAR
 
 printContent(contentProducts, dataProducts); //Function products
 
+// EVENTOS (CONTENIDO DEL CARRO, AGREGA, RESTAR O ELIMINAR PRODUCTO)
+
+// CONTENIDO DEL CARRO
 
 contentProducts.addEventListener("click", (e) => {
     if(e.target.classList.contains("add_product")) {
@@ -28,3 +31,23 @@ contentProducts.addEventListener("click", (e) => {
     }
 })
 
+// AGREGAR, RESTAR, ELIMINAR ELEMENTO
+
+contentCartBody.addEventListener("click", (e) => {
+    if (e.target.classList.contains("bx-minus")) {
+        const idFood = +e.target.parentElement.id;
+        cart[idFood].amount--;
+    }
+
+    if (e.target.classList.contains("bx-plus-medical")) {
+        const idFood = +e.target.parentElement.id;
+        cart[idFood].amount++;
+    }
+
+    if (e.target.classList.contains("bx-trash")) {
+        const idFood = +e.target.parentElement.id;
+        delete cart[idFood];
+    }
+
+    printCart(contentCartBody);
+});

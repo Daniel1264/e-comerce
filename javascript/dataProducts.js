@@ -35,7 +35,7 @@
         image: "../imagenes/silla_rgb.jpg"
     },    {
         name: "audifonos gamer RGB",
-        id: 5,
+        id: 6,
         stock: 5,
         price: "$ 45.32 US",
         image: "../imagenes/audifonos_rgb.jpg"
