@@ -38,13 +38,23 @@ contentCartBody.addEventListener("click", (e) => {
         const idFood = +e.target.parentElement.id;
         cart[idFood].amount--;
         if (cart[idFood].amount === 0) {
-            delete cart[idFood]
+            let result = confirm("¿deseas eliminar el producto?")
+            if (result === true) {
+                delete cart[idFood]
+            } else {
+                cart[idFood].amount = 1;
+            }
         }
     }
 
     if (e.target.classList.contains("bx-plus-medical")) {
         const idFood = +e.target.parentElement.id;
-        cart[idFood].amount++;
+        const stockFood = e.target.parentElement.stock;
+        cart[idFood].amount++; 
+        if(cart[idFood].amount === stockFood){
+            alert(`el limite del producto es ${stockFood}`)
+            
+        }
     }
 
     if (e.target.classList.contains("bx-trash")) {
