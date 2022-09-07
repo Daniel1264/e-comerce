@@ -21,13 +21,17 @@ contentProducts.addEventListener("click", (e) => {
 
         const findFood = dataProducts.find((item) => item.id === idFood)
         if(cart[idFood]) {
-            cart[idFood].amount++
+            cart[idFood].amount++;
+            if (cart[idFood].amount > cart[idFood].stock) {
+                alert("sorry, you ceded the limit")
+                cart[idFood].amount = cart[idFood].stock;
+            }
         } else {
             cart[idFood] = findFood;
             cart[idFood].amount = 1;
         }
-     printCart() 
-
+        
+     printCart()
     }
 })
 
@@ -40,7 +44,7 @@ contentCartBody.addEventListener("click", (e) => {
         const idFood = +e.target.parentElement.id;
         cart[idFood].amount--;
         if (cart[idFood].amount === 0) {
-            let result = confirm("¿deseas eliminar el producto?")
+            let result = confirm("Do you want to remove the product?")
             if (result === true) {
                 delete cart[idFood]
             } else {
@@ -53,7 +57,7 @@ contentCartBody.addEventListener("click", (e) => {
         const idFood = +e.target.parentElement.id;
         cart[idFood].amount++; 
         if (cart[idFood].amount > cart[idFood].stock) {
-            alert("te pasaste del limite")
+            alert("sorry, you ceded the limit")
             cart[idFood].amount = cart[idFood].stock;
         }
     }

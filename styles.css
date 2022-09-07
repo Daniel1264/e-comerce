@@ -66,7 +66,7 @@ header {
 
 
 nav {
-    height: 40px;
+    height: 10%;
     display: flex;
     background-color: rgb(255, 255, 255);
     justify-content: space-around;
@@ -89,11 +89,12 @@ nav .shopping_cart {
 }
 nav .add_cart {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 90%;
     background-color: rgba(20, 14, 13, 0.774);
-    top: 40px;
     right: 100%;
+    top: 40px;
+    overflow: scroll;
 
 }
 nav .remove_cart {
@@ -236,24 +237,24 @@ main {
 }
 
 .barra_cart_products {
-    overflow: scroll;
+    /* overflow: scroll; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    /* align-items: center; */
-    gap: 3rem;
+    align-items: center;
+    gap: 1rem;
     margin-top: 20px;
     margin-bottom: 10px;
+    /* position: absolute; */
+    height: 100%;
 }
-.result {
-    background-color: rebeccapurple;
-}
+
 /* Styles cart body */
 
 .item_cart {
     width: 200px;
-    height: 240px;
+    height: 280px;
     display: flex;
     background-color: white;
     flex-direction: column;
@@ -261,19 +262,22 @@ main {
     align-items: center;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
+    margin-top: 10px;
 }
 
 .item_cart-img {
-    width: 90%;
+    width: 100%;
     height: 200px;
 }
 .item_cart-img img {
     width: 100%;
-    height: 100%;
+    height: 80%;
 }
 
 .item_cart-options {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    padding-bottom: 10px;
 }
+
