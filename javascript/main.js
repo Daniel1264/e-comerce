@@ -49,6 +49,7 @@ contentCartBody.addEventListener("click", (e) => {
             let result = confirm("Do you want to remove the product?")
             if (result === true) {
                 delete cart[idFood]
+                totalCard.textContent = `total: 0`;
             } else {
                 cart[idFood].amount = 1;
             }
