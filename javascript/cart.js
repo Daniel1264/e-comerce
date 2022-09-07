@@ -2,11 +2,11 @@ let cart = {}
 
 function printCart () {
     const contentCartBody = document.querySelector(".barra_cart_products")
+
     let html = "";
     let num = 0;
 
     const arrayCart = Object.values(cart)
- let totalCart = document.querySelector(".total");
 
     arrayCart.forEach(({name, id, image, amount, price}) => {
         html += `
@@ -23,12 +23,25 @@ function printCart () {
             <i class='bx bx-plus-medical'></i>
             <i class='bx bx-trash'></i>
         </div>
-        <div class="total_cart">total: $ ${parseFloat(amount) * parseFloat(price)} US</div>
+        <div class="total_cart"> ${parseFloat(amount) * parseFloat(price)} US</div>
     </div>
         `
+        const totalCard = document.querySelector(".total_card_products")
+        // totalCard.textContent = `total: ${num += parseFloat(amount) * parseFloat(price)} US`;
+
+        if(totalCard) {
+            totalCard.textContent = `total: ${num += parseFloat(amount) * parseFloat(price)} US`;
+            
+        } else {
+            totalCard.textContent = 0;
+        }
+
+    
     }) 
+
+
     contentCartBody.innerHTML = html;
-    totalCart = `<p>total: ${num += parseFloat(amount) * parseFloat(price)}</p>`
+
 }
 
 

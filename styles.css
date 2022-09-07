@@ -184,7 +184,22 @@ header .text_content button:hover {
     background-color: red;
     transition: all .5s;
 }
-
+header .total_card_products {
+    width: 110px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 70%;
+    right: -60px;
+    border: 1px solid black;
+    border-bottom-left-radius: 15px;
+    padding: 5px;
+    font-size: 20px;
+}
+header .total_card_products:hover {
+    right: 0;
+    transition: all 1s;
+}
 
 /* content body */ 
 
@@ -296,13 +311,16 @@ main {
     padding-bottom: 10px;
 }
 
-.total {
-    width: 100%;
+.price {
+    width: 70%;
     height: 10%;
     background-color: rebeccapurple;
-    position: relative;
+    position: absolute;
     color: white;
+    right: 20px;
+    top: 80%;
 }
+
 footer {
     margin-top: 20px;
     margin-bottom: 0px;
@@ -389,5 +407,21 @@ footer {
     }
     header nav .add_cart {
         width: 50%;
+    }
+    header .total_card_products {
+        width: 200px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        top: 70%;
+        right: -150px;
+        border: 1px solid black;
+        border-bottom-left-radius: 15px;
+        padding: 5px;
+        font-size: 20px;
+    }
+    header .total_card_products:hover {
+        right: 0;
+        transition: all 1s;
     }
 }
