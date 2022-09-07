@@ -26,11 +26,17 @@ function printCart () {
         <div class="total_cart"> ${parseFloat(amount) * parseFloat(price)} US</div>
     </div>
         `
-        const totalCard = document.querySelector(".total_card_products");
         
-
-        totalCard.textContent = `total: ${num += parseFloat(amount) * parseFloat(price)} US`
-
+        let resultTotal =`total: ${num += parseFloat(amount) * parseFloat(price)} US`
+        const totalCard = document.querySelector(".strong");
+        totalCard.textContent = resultTotal;
+        // totalCard.innerHTML = `<h2>${0}</h2`;
+        // if(totalCard){ 
+        //     totalCard.textContent = resultTotal;
+        // } else {
+        //     totalCard.textContent = num;
+        // }
+        
     }) 
 
 

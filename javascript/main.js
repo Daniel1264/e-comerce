@@ -6,7 +6,7 @@ import {printCart, cart} from "./cart.js"
 // SELECTORES DE ETIQUETA (CLASE, ID)
  let contentProducts = document.querySelector(".container_products")
  const contentCartBody = document.querySelector(".barra_cart_products")
- const totalCard = document.querySelector(".total_card_products");
+ let  totalCard = document.querySelector(".strong");
 
 
 // FUNCIONES A UTILIZAR
@@ -65,10 +65,12 @@ contentCartBody.addEventListener("click", (e) => {
     }
 
     if (e.target.classList.contains("bx-trash")) {
+
         const idFood = +e.target.parentElement.id;
         delete cart[idFood];
-    }
+        totalCard.textContent = `total: 0`;
 
+    }
 
     printCart(contentCartBody);
 });
