@@ -6,7 +6,7 @@ function printCart () {
 
     const arrayCart = Object.values(cart)
 
-    arrayCart.forEach(({name, id, image, amount}) => {
+    arrayCart.forEach(({name, id, image, amount, stock}) => {
         html += `
         <div class="item_cart">
         <div class="item_cart-img">
@@ -25,5 +25,6 @@ function printCart () {
     })
     contentCartBody.innerHTML = html;
 }
+
 
 export {printCart, cart}

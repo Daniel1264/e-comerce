@@ -33,7 +33,9 @@ contentProducts.addEventListener("click", (e) => {
 
 // AGREGAR, RESTAR, ELIMINAR ELEMENTO
 
+
 contentCartBody.addEventListener("click", (e) => {
+
     if (e.target.classList.contains("bx-minus")) {
         const idFood = +e.target.parentElement.id;
         cart[idFood].amount--;
@@ -49,11 +51,10 @@ contentCartBody.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("bx-plus-medical")) {
         const idFood = +e.target.parentElement.id;
-        const stockFood = e.target.parentElement.stock;
         cart[idFood].amount++; 
-        if(cart[idFood].amount === stockFood){
-            alert(`el limite del producto es ${stockFood}`)
-            
+        if (cart[idFood].amount > cart[idFood].stock) {
+            alert("te pasaste del limite")
+            cart[idFood].amount = cart[idFood].stock;
         }
     }
 

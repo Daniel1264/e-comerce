@@ -1,4 +1,4 @@
- export const dataProducts = [ 
+ const dataProducts = [ 
     {
         name: "Laptop Gamer RGB",
         id: 1,
@@ -41,3 +41,6 @@
         image: "../imagenes/audifonos_rgb.jpg"
     }
 ]
+
+
+export {dataProducts}

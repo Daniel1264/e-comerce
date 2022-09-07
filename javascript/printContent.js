@@ -1,4 +1,4 @@
-export function printContent(contentHTML, data) {
+ function printContent(contentHTML, data) {
     let html = "";
 
     data.forEach(({name, stock, price, image, id})  => {
@@ -10,7 +10,7 @@ export function printContent(contentHTML, data) {
            <div class="product_card_information">
                 <h2>${name}</h2>
                <p>lorem is a price mothewd write a function that return a string with a value in number</p>
-               <p>stock ${stock}</p>
+               <p class="stoker">stock ${stock}</p>
                <p>${price}</p>
             </div>
             <button class="add_product">add</button>
@@ -19,3 +19,6 @@ export function printContent(contentHTML, data) {
         contentHTML.innerHTML = html;
     })
 }
+
+
+export {printContent}
