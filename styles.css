@@ -246,7 +246,9 @@ main {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
+.result {
+    background-color: rebeccapurple;
+}
 /* Styles cart body */
 
 .item_cart {
