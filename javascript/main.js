@@ -6,6 +6,8 @@ import {printCart, cart} from "./cart.js"
 // SELECTORES DE ETIQUETA (CLASE, ID)
  let contentProducts = document.querySelector(".container_products")
  const contentCartBody = document.querySelector(".barra_cart_products")
+ let totalCart = document.querySelector(".total");
+ let cartSubTotal = document.querySelector(".total_cart")
 
 // FUNCIONES A UTILIZAR
 
@@ -69,3 +71,9 @@ contentCartBody.addEventListener("click", (e) => {
 
     printCart(contentCartBody);
 });
+
+let sum = 0;
+
+sum += parseFloat(cartSubTotal);
+
+totalCart = sum;
