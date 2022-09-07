@@ -17,7 +17,7 @@
         name: "Teclado Gamer RGB",
         id: 3,
         stock: 8,
-        price: 13.23,
+        price: 13,
         image: "../imagenes/teclado_rbg.jpg"
     },
     {

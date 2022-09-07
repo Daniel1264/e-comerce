@@ -6,6 +6,7 @@ import {printCart, cart} from "./cart.js"
 // SELECTORES DE ETIQUETA (CLASE, ID)
  let contentProducts = document.querySelector(".container_products")
  const contentCartBody = document.querySelector(".barra_cart_products")
+ const totalCard = document.querySelector(".total_card_products");
 
 
 // FUNCIONES A UTILIZAR
@@ -22,16 +23,13 @@ contentProducts.addEventListener("click", (e) => {
         const idFood = +e.target.parentElement.id;
         const findFood = dataProducts.find((item) => item.id === idFood)
         if(cart[idFood]) {
-            let html = "";
-            html += `
-            <div class="total">total</div>
-            `
             cart[idFood].amount++;
             if (cart[idFood].amount > cart[idFood].stock) {
                 alert("sorry, you ceded the limit")
                 cart[idFood].amount = cart[idFood].stock;
             }
         } else {
+            totalCard.textContent = 0;
             cart[idFood] = findFood;
             cart[idFood].amount = 1;
         }
@@ -71,6 +69,7 @@ contentCartBody.addEventListener("click", (e) => {
         const idFood = +e.target.parentElement.id;
         delete cart[idFood];
     }
+
 
     printCart(contentCartBody);
 });
