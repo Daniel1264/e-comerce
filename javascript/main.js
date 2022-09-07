@@ -29,7 +29,6 @@ contentProducts.addEventListener("click", (e) => {
                 cart[idFood].amount = cart[idFood].stock;
             }
         } else {
-            totalCard.textContent = 0;
             cart[idFood] = findFood;
             cart[idFood].amount = 1;
         }

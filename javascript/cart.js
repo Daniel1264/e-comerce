@@ -30,9 +30,6 @@ function printCart () {
         
 
         totalCard.textContent = `total: ${num += parseFloat(amount) * parseFloat(price)} US`
-        if(!totalCard){
-            totalCard.textContent = 0;
-        }
 
     }) 
 

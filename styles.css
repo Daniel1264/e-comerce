@@ -185,7 +185,7 @@ header .text_content button:hover {
     transition: all .5s;
 }
 header .total_card_products {
-    width: 110px;
+    width: 150px;
     height: 40px;
     background-color: rgb(255, 255, 255);
     position: fixed;
