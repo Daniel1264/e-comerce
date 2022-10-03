@@ -1,78 +1,133 @@
-// IMPORTACION DE MODULOOS
-import {dataProducts} from "./dataProducts.js"
-import {printContent} from "./printContent.js"
-import {printCart, cart} from "./cart.js"
+//? IMPORTACIONES
+import product from './data.js'
+import printProducts from './printUsers.js'
 
-// SELECTORES DE ETIQUETA (CLASE, ID)
- let contentProducts = document.querySelector(".container_products")
- const contentCartBody = document.querySelector(".barra_cart_products")
- let  totalCard = document.querySelector(".strong");
+// ?SELECTORES 
 
+// CONTENT LOADING SCREEN AND CONTENT BODY
+let loader = document.querySelector("#loading");
+let globalContent = document.querySelector("#root");
 
-// FUNCIONES A UTILIZAR
+// CONTENT BODY (PRODUCTS)
+let contentBody = document.querySelector(".content_body")
 
-printContent(contentProducts, dataProducts); //Function products
+// CONTENT MENU(FOOD), CARTSHOPPING AND MENU CART
+let contentCart = document.querySelector(".menu_cart")
+let contentMenu = document.querySelector(".menu_food")
+let cartLogo = document.querySelector(".bxs-cart-add")
+let cartTotal = document.querySelector(".menu_total")
 
-// EVENTOS (CONTENIDO DEL CARRO, AGREGA, RESTAR O ELIMINAR PRODUCTO)
+// CONTENT TOTAL PRODUCTS
 
-// CONTENIDO DEL CARRO
+// CONTENT BUTTONS OF OPTIONS OF THE PRODUCTS IN THE CART SHOPPING
 
-contentProducts.addEventListener("click", (e) => {
-    if(e.target.classList.contains("add_product")) {
+// ?SETTIMEOUT AND EVENTS 
+let cart = {}
 
-        const idFood = +e.target.parentElement.id;
-        const findFood = dataProducts.find((item) => item.id === idFood)
-        if(cart[idFood]) {
-            cart[idFood].amount++;
-            if (cart[idFood].amount > cart[idFood].stock) {
-                alert("sorry, you ceded the limit")
-                cart[idFood].amount = cart[idFood].stock;
-            }
-        } else {
-            cart[idFood] = findFood;
-            cart[idFood].amount = 1;
-        }
-        
-     printCart()
-    }
+// SETTIMEOUT OF LOADING SCREEN
+setTimeout(() => {
+    loader.classList.add("delete_window_loader")
+    loader.classList.remove("window_loader")
+    globalContent.classList.add("show_content")
+    globalContent.classList.remove("content")
+}, 5000)
+
+// EVENT OF CART (SHOW OF CARTSHOPPING)
+cartLogo.addEventListener('click', () => {
+    contentMenu.classList.toggle("menu_food_show")
 })
 
-// AGREGAR, RESTAR, ELIMINAR ELEMENTO
+// EVENT ADD A PRODUCT TO CARTSHOPPING
 
 
-contentCartBody.addEventListener("click", (e) => {
+contentBody.addEventListener('click', (e) => {
+    if (e.target.classList.contains("btn_add")) {
+        const idFood = +e.target.parentElement.id
 
-    if (e.target.classList.contains("bx-minus")) {
-        const idFood = +e.target.parentElement.id;
-        cart[idFood].amount--;
+        const findFood  = product.find((item) => idFood === item.id)
+        if (cart[idFood]) {
+            cart[idFood].amount++
+            if (cart[idFood].amount > cart[idFood].stok) {
+                alert("se agoto el producto master")
+                cart[idFood].amount = cart[idFood].stok
+            }
+        } else {
+            cart[idFood] = findFood
+            cart[idFood].amount = 1
+        }
+        printCart()
+    }
+}
+)
+
+// 
+contentCart.addEventListener('click', (e) => {
+    if(e.target.classList.contains("bx-plus-medical")) {
+        const idFood = +e.target.parentElement.id
+        cart[idFood].amount++
+        if (cart[idFood].amount > cart[idFood].stok) {
+            alert("el producto llego a su limite")
+            cart[idFood].amount = cart[idFood].stok
+        }
+
+    }
+    if(e.target.classList.contains("bx-minus")) {
+        const idFood = +e.target.parentElement.id
+        cart[idFood].amount--
         if (cart[idFood].amount === 0) {
-            let result = confirm("Do you want to remove the product?")
-            if (result === true) {
+            let questing = confirm ("¿desea eliminar?")
+            if (questing == true) {
                 delete cart[idFood]
-                totalCard.textContent = `total: 0`;
-            } else {
-                cart[idFood].amount = 1;
             }
         }
     }
 
-    if (e.target.classList.contains("bx-plus-medical")) {
-        const idFood = +e.target.parentElement.id;
-        cart[idFood].amount++; 
-        if (cart[idFood].amount > cart[idFood].stock) {
-            alert("sorry, you ceded the limit")
-            cart[idFood].amount = cart[idFood].stock;
-        }
+    if(e.target.classList.contains("bx-trash")) {
+        const idFood = +e.target.parentElement.id
+        delete cart[idFood]
     }
+    printCart()
 
-    if (e.target.classList.contains("bx-trash")) {
+})
 
-        const idFood = +e.target.parentElement.id;
-        delete cart[idFood];
-        totalCard.textContent = `total: 0`;
+function printCart() {
+    let html = ""
+    let sum = 0
+    const arrayCart = Object.values(cart)
+    let total = ""
 
-    }
+    arrayCart.forEach(({id, name, image, amount, price}) => {
+        html += `
+        <div class="item_cart">
+                <div class="item_cart-img">
+                    <img src="${image}" alt="">
+                </div>
 
-    printCart(contentCartBody);
-});
- 
+                <h4 class="item_cart-title">${name}</h4>
+                <div class="item_cart-options" id="${id}">
+                    <i class='bx bx-minus'></i>
+                    <i class='bx bx-plus-medical'></i>
+                    <i class='bx bx-trash'></i>
+                    <span >total : ${amount * price}</span>
+                </div>
+            </div>
+        `
+         total = sum+= amount * price
+    })
+    cartTotal.textContent = `Total: ${total} MNX`
+    contentCart.innerHTML = html
+}
+
+// 
+
+
+
+
+
+
+
+
+// llamada de funciones
+
+printProducts(product, contentBody)
+
